@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-import easy_print
+import os
+os.write(1,"#pythoniscool".encode("utf-8"))
