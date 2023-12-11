@@ -94,19 +94,24 @@ class Rectangle(Base):
         height = self.height
         return f'[Rectangle] ({i}) {x}/{y} - {width}/{height}'
 
-    def update(self, *args):
-        """ update func. """
-        if len(args) >= 1:
+    def update(self, *args, **kwargs):
+        if args is not None and len(args) >= 1:
             self.id = args[0]
-        if len(args) >= 2:
-            self.width = args[1]
-        if len(args) >= 3:
-            self.height = args[2]
-        if len(args) >= 4:
-            self.x = args[3]
-        if len(args) >= 5:
-            self.y = args[4]
-
-        if kwargs is not None:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+            if len(args) == 5:
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+            elif len(args) == 4:
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+            elif len(args) == 3:
+                self.width = args[1]
+                self.height = args[2]
+            elif len(args) == 2:
+                self.width = args[1]
+        else:
+            if kwargs is not None:
+                for key, value in kwargs.items():
+                    setattr(self, key, value)
