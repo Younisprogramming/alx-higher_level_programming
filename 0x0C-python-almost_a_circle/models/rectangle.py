@@ -93,3 +93,21 @@ class Rectangle(Base):
         width = self.width
         height = self.height
         return f'[Rectangle] ({i}) {x}/{y} - {width}/{height}'
+
+    def update(self, *args):
+        """ update func. """
+        self.id = args[0]
+        if len(args) == 5:
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        elif len(args) == 4:
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+        elif len(args) == 3:
+            self.width = args[1]
+            self.height = args[2]
+        elif len(args) == 2:
+            self.width = args[1]
