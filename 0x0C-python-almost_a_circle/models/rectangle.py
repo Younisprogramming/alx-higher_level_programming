@@ -95,6 +95,7 @@ class Rectangle(Base):
         return f'[Rectangle] ({i}) {x}/{y} - {width}/{height}'
 
     def update(self, *args, **kwargs):
+        """ update func. """
         if args is not None and len(args) >= 1:
             self.id = args[0]
             if len(args) == 5:
