@@ -96,18 +96,32 @@ class Rectangle(Base):
 
     def update(self, *args):
         """ update func. """
-        self.id = args[0]
-        if len(args) == 5:
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        elif len(args) == 4:
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-        elif len(args) == 3:
-            self.width = args[1]
-            self.height = args[2]
-        elif len(args) == 2:
-            self.width = args[1]
+        if args is not None and len(args) >= 1:
+            self.id = args[0]
+            if len(args) == 5:
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+            elif len(args) == 4:
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+            elif len(args) == 3:
+                self.width = args[1]
+                self.height = args[2]
+            elif len(args) == 2:
+                self.width = args[1]
+        else:
+            if kwargs is not None:
+                for key, value in kwargs.items():
+                    if key == "id":
+                        self.id = value
+                    elif key == "width":
+                        self.width = value
+                    elif key == "height":
+                        self.height = value
+                    elif key == "x":
+                        self.x = value
+                    elif key == "y":
+                        self.y = value
