@@ -13,5 +13,4 @@ if __name__ == '__main__':
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%';")
     states = cur.fetchall()
     for state in states:
-        if state[0] == 'N':
-            print(state)
+        print(state)
