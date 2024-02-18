@@ -12,4 +12,4 @@ class State(Base):
     """ my doc ... """
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
-    name = Column(strin(128), nullable=False)
+    name = Column(String(128), nullable=False)
