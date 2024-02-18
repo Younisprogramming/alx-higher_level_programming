@@ -17,8 +17,8 @@ if __name__ == '__main__':
     target = sys.argv[4]
     cur = db.cursor()
     cur.execute("SELECT * FROM states \
-                    WHERE states.name = '{}' \
-                    ORDER BY id ASC;".format(target))
+                    WHERE states.name = %s \
+                    ORDER BY id ASC;", (target,))
     states = cur.fetchall()
     for state in states:
         if state[1] == target:
