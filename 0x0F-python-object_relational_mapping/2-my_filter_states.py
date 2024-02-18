@@ -21,6 +21,7 @@ if __name__ == '__main__':
                     ORDER BY id ASC;".format(target))
     states = cur.fetchall()
     for state in states:
-        print(state)
+        if state[1] == target:
+            print(state)
 
     db.close()
