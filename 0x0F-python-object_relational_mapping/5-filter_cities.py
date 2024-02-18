@@ -23,6 +23,14 @@ if __name__ == '__main__':
                 WHERE states.name = %s;", (target,)
                )
     states = cur.fetchall()
-    for state in states:
-        print(state, end="")
+    count = 0
+    if len(states) > 0:
+        for row in states:
+            count += 1
+            if count < (len(states)):
+                print('{}, '.format(row[0]), end="")
+            else:
+                print('{}'.format(row[0]))
+    else:
+        print()
     db.close()
